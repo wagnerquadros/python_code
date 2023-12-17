@@ -19,6 +19,9 @@ class Programa:
     def nome(self, noveo_nome):
         self.__nome = noveo_nome.title()
 
+    def __str__(self):
+        return f'{self._nome} - {self.ano} - {self._likes}'
+
 #================================
 
 class Filme(Programa):
@@ -26,6 +29,8 @@ class Filme(Programa):
         super().__init__(nome, ano)
         self.duracao = duracao
 
+    def __str__(self):
+        return f'{self._nome} - {self.ano} - {self._likes} - Duração: {self.duracao}'
 
 
 #================================
@@ -34,6 +39,9 @@ class Serie(Programa):
     def __init__(self, nome, ano,  temporadas):
         super().__init__(nome, ano)
         self.temporadas = temporadas
+
+    def __str__(self):
+        return f'{self._nome} - {self.ano} - {self._likes} - Temporadas: {self.temporadas}'
 
 
 
@@ -49,4 +57,7 @@ serie.dar_like()
 print(f'Nome: {serie.nome} - Ano: {serie.ano} - Temporadas: {serie.temporadas} '
       f'- Likes: {serie.likes}')
 
+filmes_e_series = [filme,serie]
 
+for programa in filmes_e_series:
+    print(programa)
