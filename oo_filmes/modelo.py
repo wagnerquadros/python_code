@@ -50,8 +50,11 @@ class Playlist:
         self.nome = nome
         self._programas = programas
 
-    def __getitem__(self, item):
+    def __getitem__(self, item): #define alguem que é iterável
         return self._programas[item]
+
+    def __len__(self): #define que tem size
+        return len(self._programas)
 
     @property
     def listagem(self):
@@ -89,5 +92,6 @@ playlist_fim_de_semana = Playlist('Fim de Semana', filmes_e_series)
 for programa in playlist_fim_de_semana:
     print(programa)
 
-
 print(f'Lost está na playlist? {lost in playlist_fim_de_semana}')
+
+print(len(playlist_fim_de_semana))
