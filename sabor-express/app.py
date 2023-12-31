@@ -15,24 +15,32 @@ def exibir_opcoes():
     print('4. Sair\n')
 
 def finalizar_app():
-    os.system('cls') # Limpa o console
-    print('Fnalizando o app\n')
+    exibir_subtitulo('Finalizando app')
+
+def votar_ao_menu():
+    input('\nPrecione uma tecla para voltar ao menu ')
+    main()
 
 def opcao_invalida():
     print('Opção Inválida')
-    input('Precione uma tecla para voltar ao menu')
-    main()
+    votar_ao_menu()
 
+def exibir_subtitulo(texto):
+    os.system('cls')
+    print(texto)
 
 def cadastrar_novo_restaurante():
-    os.system('cls')
-    print('Casdastro de Restaurantes\n')
+    exibir_subtitulo('Cadastrar novo restaurante:')
     nome_restaurante = input('Digite o nome do restaurante: ')
     restaurantes.append(nome_restaurante)
     print(f'O restaurante {nome_restaurante} foi cadastrado')
-    input('Precione uma tecla para voltar ao menu')
-    main()
+    votar_ao_menu()
 
+def listar_restaurantes():
+    exibir_subtitulo('Listando Restaurantes:')
+    for restaurante in restaurantes:
+        print(f'.{restaurante}')
+    votar_ao_menu()
 
 def escolher_opcao():
     try:
@@ -42,7 +50,7 @@ def escolher_opcao():
         if opcao_escolhida == 1:
             cadastrar_novo_restaurante()
         elif opcao_escolhida == 2:
-            print('Listar Restaurante')
+            listar_restaurantes()
         elif opcao_escolhida == 3:
             print('Ativar Restaurante')
         elif opcao_escolhida == 4:
