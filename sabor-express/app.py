@@ -1,4 +1,7 @@
 import os
+
+restaurantes = ['Pollos Hermanos', 'Pizza Planet']
+
 def exibir_nome():
     print("""
         █▀ ▄▀█ █▄▄ █▀█ █▀█   █▀▀ ▀▄▀ █▀█ █▀█ █▀▀ █▀ █▀
@@ -17,8 +20,19 @@ def finalizar_app():
 
 def opcao_invalida():
     print('Opção Inválida')
-    input('Precione uma tecla para votas ao menu')
+    input('Precione uma tecla para voltar ao menu')
     main()
+
+
+def cadastrar_novo_restaurante():
+    os.system('cls')
+    print('Casdastro de Restaurantes\n')
+    nome_restaurante = input('Digite o nome do restaurante: ')
+    restaurantes.append(nome_restaurante)
+    print(f'O restaurante {nome_restaurante} foi cadastrado')
+    input('Precione uma tecla para voltar ao menu')
+    main()
+
 
 def escolher_opcao():
     try:
@@ -26,7 +40,7 @@ def escolher_opcao():
         print(f'Você escolheu a opção: {opcao_escolhida}!')
 
         if opcao_escolhida == 1:
-            print('Cadastrar restaurante')
+            cadastrar_novo_restaurante()
         elif opcao_escolhida == 2:
             print('Listar Restaurante')
         elif opcao_escolhida == 3:
