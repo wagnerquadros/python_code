@@ -7,8 +7,8 @@ import csv
 
 url ='https://raw.githubusercontent.com/diogocortiz/Crash-Course-IA/master/RegressaoLinear/FuelConsumptionCo2.csv'
 response = requests.get(url)
-
-
+for row in csv_reader:
+    print(row)
 # Cria um dataset chamado 'df' que receberá os dados do csv
 df = pd.read_csv("FuelConsumptionCo2.csv")
 
